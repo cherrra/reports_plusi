@@ -1,0 +1,33 @@
+/*В зал ежедневно приходит n кол-во посетителей. необходимо предложить пользователю ввести такие данные: сколько человек посетило зал за день, 
+ввести возраст каждого посетителя и в итоге показать возраст самого старшего и самого молодого из них, а также посчитаьь средний возраст посетителей. */
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main() {
+int n, age, max_age = 0, min_age = 100, total_age = 0;
+cout « "Введите количество посетителей: ";
+cin » n;
+
+for (int i = 1; i <= n; i++) {
+cout « "Введите возраст посетителей " « i « ": ";
+cin » age;
+if (age > max_age) {
+max_age = age;
+}
+if (age < min_age) {
+min_age = age;
+}
+total_age += age;
+}
+
+double avg_age = double(total_age) / n;
+
+cout « "Возраст самого старого посетителя " « max_age « " years old." « endl;
+cout « "Самый юный посетитель " « min_age « " years old." « endl;
+cout « "Средний возраст посетителей составляет " « avg_age « " years old." « endl;
+
+return 0;
+}
