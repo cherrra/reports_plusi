@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int countSentences(const string& text) {
@@ -14,8 +13,11 @@ int countSentences(const string& text) {
 }
 
 int main() {
-    string text1 = "хочу домой.";
-    string text2 = "когда домой? вот бы поспать!";
+    string text1, text2;
+    cout << "Введите первый текст: ";
+    getline(cin, text1);
+    cout << "Введите второй текст: ";
+    getline(cin, text2);
 
     int sentences1 = countSentences(text1);
     int sentences2 = countSentences(text2);
