@@ -4,7 +4,9 @@
 using namespace std;
 
 int main() {
-    string stroka = "Эх, Вот Бы Домой.";
+    string stroka;
+    cout << "Введите строку: ";
+    getline(cin, stroka);
 
     string result = "";
     for (char c : stroka) {
