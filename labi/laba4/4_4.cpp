@@ -5,26 +5,33 @@ using namespace std;
 int main() {
     string input;
     getline(cin, input);
+    string output = "";
 
-    int firstSpace = -1;
-    int secondSpace = -1;
-
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == ' ') {
-            if (firstSpace == -1) {
-                firstSpace = i;
-            } else {
-                secondSpace = i;
-                break;
-            }
-        }
+//первое слово
+int spaceIndex = 0;
+for(int i = 0; i < input.length(); i++) {
+    if(input[i] == ' ') {
+        spaceIndex = i;
+        break;
     }
+}
+string firstWord = input.substr(0, spaceIndex);
+output += firstWord + " ";
 
-    string firstName = input.substr(0, firstSpace);
-    string secondNameInitial = input.substr(firstSpace + 1, 1) + ".";
-    string lastNameInitial = input.substr(secondSpace + 1, 1) + ".";
+//первая буква остальных двух слов
+int secondSpaceIndex = 0;
+for(int i = spaceIndex + 1; i < input.length(); i++) {
+    if(input[i] == ' ') {
+        secondSpaceIndex = i;
+        break;
+    }
+}
+string secondWord = input.substr(spaceIndex + 1, 1);
+string thirdWord = input.substr(secondSpaceIndex + 1, 1);
 
-    cout << firstName << " " << secondNameInitial << lastNameInitial << endl;
+output += secondWord + "." + thirdWord + ".";
 
-    return 0;
+cout << output << endl;
+
+return 0;
 }
