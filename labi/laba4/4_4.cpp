@@ -6,8 +6,19 @@ int main() {
     string input;
     getline(cin, input);
 
-    int firstSpace = input.find(' ');
-    int secondSpace = input.find(' ', firstSpace + 1);
+    int firstSpace = -1;
+    int secondSpace = -1;
+
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ') {
+            if (firstSpace == -1) {
+                firstSpace = i;
+            } else {
+                secondSpace = i;
+                break;
+            }
+        }
+    }
 
     string firstName = input.substr(0, firstSpace);
     string secondNameInitial = input.substr(firstSpace + 1, 1) + ".";
